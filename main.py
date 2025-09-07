@@ -3,7 +3,7 @@ from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
 import math
 
-Window.size = (280,480)
+Window.size = (720,1600)
 
 
 
