@@ -1,0 +1,172 @@
+<topBoxLayout@BoxLayout>:
+	canvas:
+		Color:
+			rgba: 1,1,0,1
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+<Calculator>:
+	txtinput:txtinput
+	BoxLayout:
+		canvas:
+			Color:
+				rgb: 0.5,0.5,0.5
+			Rectangle:
+				size: self.size
+				pos: self.pos
+		orientation: 'vertical'
+		BoxLayout:
+			size_hint_y: 0.2
+			Label:
+				text: 'Kivy Scientific Calculator ' 
+				text_size: self.size
+				italic: True
+				color: 0,1,0
+				bold: True
+			Label:
+				size_hint_x: 0.3
+				text: 'ver0.0'
+				text_size: self.size
+				italic: True
+				color: 0,0,1
+				bold: True
+
+			
+
+		BoxLayout:
+			canvas:
+				Color:
+					rgb: 1,1,1
+				Rectangle:
+					size: self.size
+					pos: self.pos
+			padding: [0, 0, 0, 0]
+			size_hint_y: 0.5
+			TextInput:
+				id: txtinput
+				hint_text: '0.0'
+				font_size: 50
+				readonly: True
+		GridLayout:
+			canvas:
+				Color:
+					rgb: 1,0,0
+				Rectangle:
+					size: self.size
+					pos: self.pos
+			rows:3
+			cols: 4
+			Button:
+				text: 'Clr'
+				on_release: root.ac_clear()
+			Button:
+				text: 'del'
+				on_release: root.delete()
+			Button:
+				text: '%'
+				on_release: root.percentage()
+			Button:
+				text: '+/-'
+				on_release: root.add_sub()
+			Button:
+				text: 'pi'
+				on_release: root.pi()
+			Button:
+				text: 'exp'
+				on_release: root.txtinput.text += '**'
+			ToggleButton:
+				text: 'Rad'
+				group: 'rad-deg'
+				on_release: root.rad()
+
+			ToggleButton:
+				text: 'Deg'
+				group: 'rad-deg'
+				on_release: root.deg()
+
+		GridLayout:
+			#Yellow
+			canvas:
+				Color:
+					rgb: 1,1,0
+				Rectangle:
+					size: self.size
+					pos: self.pos
+			cols: 4
+			rows: 3
+			Button:
+				text: '7'
+				on_release: root.txtinput.text += '7'
+			Button:
+				text: '8'
+				on_release: root.txtinput.text += '8'
+			Button:
+				text: '9'
+				on_release: root.txtinput.text += '9'
+			Button:
+				text: '/'
+				on_release: root.txtinput.text += '/'
+			Button:
+				text: '4'
+				on_release: root.txtinput.text += '4'
+			Button:
+				text: '5'
+				on_release: root.txtinput.text += '5'
+			Button:
+				text: '6'
+				on_release: root.txtinput.text += '6'
+			Button:
+				text: 'X'
+				on_release: root.txtinput.text += '*'
+			Button:
+				text: '1'
+				on_release: root.txtinput.text += '1'
+			Button:
+				text: '2'
+				on_release: root.txtinput.text += '2'
+			Button:
+				text: '3'
+				on_release: root.txtinput.text += '3'
+			Button:
+				text: '-'
+				on_release: root.txtinput.text += '-'
+		BoxLayout:
+			canvas:
+				Color:
+					rgb: 1,0,1
+				Rectangle:
+					size: self.size
+					pos: self.pos
+			GridLayout:
+				rows: 2
+				size_hint_x: 0.75
+				BoxLayout:
+					orientation: 'horizontal'
+					Button:
+						text: '.'
+						on_release: root.dot()
+					Button:
+						text: '0'
+						on_release: root.txtinput.text += '0'
+					BoxLayout:
+						Button:
+							text: '('
+							on_release: root.txtinput.text += '('
+						Button:
+							text: ')'
+							on_release: root.txtinput.text += ')'
+				Button:
+					text: '='
+					on_release: root.calculate()
+
+				
+			BoxLayout:
+				size_hint_x: 0.25
+				orientation: 'vertical'
+				Button:
+					text: '+'
+					on_release: root.txtinput.text += '+'
+				
+				
+
